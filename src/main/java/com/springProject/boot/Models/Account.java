@@ -28,4 +28,7 @@ public class Account {
     @JoinColumn(name = "account_holder_id")
     private AccountHolder accountHolder;
 
+    @ManyToMany
+    private List<Card> cardList;
+
 }

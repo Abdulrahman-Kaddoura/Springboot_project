@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -23,4 +24,7 @@ public class Card {
 
     @Column(name = "expiry_date")
     private Date expiryDate;
+
+    @ManyToMany
+    private List<Account> accountList;
 }
