@@ -18,8 +18,8 @@ public class AccountService {
     @Autowired
     AccountHolderRepository accountHolderRepository;
 
-    private Account createAccount(Account account) throws Exception {
-        Optional<AccountHolder> accountHolder = accountHolderRepository.findById(account.getId());
+    public Account createAccount(Account account) throws Exception {
+        Optional<AccountHolder> accountHolder = accountHolderRepository.findById(account.getAccountHolder().getId());
 
         if (accountHolder.isPresent()) {
             account.setAccountHolder(accountHolder.get());
