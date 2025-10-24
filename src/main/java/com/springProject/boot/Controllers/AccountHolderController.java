@@ -17,7 +17,7 @@ public class AccountHolderController {
     AccountHolderService accountHolderService;
 
 
-    @PostMapping("create-account-holder")
+    @PostMapping("/create-account-holder")
     public ResponseEntity<AccountHolder> createAccountHolder(@RequestBody AccountHolder accountHolder) {
         AccountHolder accountHolder1 = accountHolderService.createAccountHolder(accountHolder);
         return new ResponseEntity<>(accountHolder1, HttpStatus.CREATED);

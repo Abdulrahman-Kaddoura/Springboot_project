@@ -19,6 +19,9 @@ public class Card {
     @Column(name = "card_id")
     private UUID id;
 
+    @Column(name = "cvv", length = 3)
+    private String cvv;
+
     @Column(name = "card_number")
     private String cardNumber;
 
