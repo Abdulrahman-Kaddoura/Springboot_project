@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/card-controller")
+@RequestMapping("/card")
 public class CardController {
     @Autowired
     CardService cardService;
