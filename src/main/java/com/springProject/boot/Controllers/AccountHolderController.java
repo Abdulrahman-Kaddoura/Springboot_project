@@ -2,6 +2,10 @@ package com.springProject.boot.Controllers;
 
 import com.springProject.boot.Models.AccountHolder;
 import com.springProject.boot.Services.AccountHolderService;
+import com.springProject.boot.dtos.AccountHolderRequestDTO;
+import com.springProject.boot.dtos.AccountHolderResponseDTO;
+import com.springProject.boot.dtos.AccountResponseDTO;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,11 +20,15 @@ public class AccountHolderController {
     @Autowired
     AccountHolderService accountHolderService;
 
+    @Autowired
+    ModelMapper modelMapper;
 
     @PostMapping("/create-account-holder")
-    public ResponseEntity<AccountHolder> createAccountHolder(@RequestBody AccountHolder accountHolder) {
-        AccountHolder accountHolder1 = accountHolderService.createAccountHolder(accountHolder);
-        return new ResponseEntity<>(accountHolder1, HttpStatus.CREATED);
+    public ResponseEntity<AccountHolderResponseDTO> createAccountHolder(@RequestBody AccountHolderRequestDTO accountHolderRequestDTO) {
+        AccountHolder accountHolder = modelMapper.map(accountHolderRequestDTO, AccountHolder.class);
+        AccountHolder savedAccountHolder = accountHolderService.createAccountHolder(accountHolder);
+        AccountHolderResponseDTO accountResponseDTO = modelMapper.map(savedAccountHolder, AccountHolderResponseDTO.class);
+        return new ResponseEntity<>(accountResponseDTO, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
