@@ -7,6 +7,7 @@ import com.springProject.boot.Repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -34,6 +35,17 @@ public class AccountService {
         if (dbAccount.isPresent()) {
             account.setId(id);
             return accountRepository.save(account);
+        } else {
+            throw new Exception();
+        }
+    }
+
+    public BigDecimal modifyBalance(BigDecimal balance, UUID id) throws Exception {
+        Optional<Account> dbAccount = accountRepository.findById(id);
+        if (dbAccount.isPresent()) {
+            dbAccount.get().setBalance(balance);
+            accountRepository.save(dbAccount.get());
+            return dbAccount.get().getBalance();
         } else {
             throw new Exception();
         }

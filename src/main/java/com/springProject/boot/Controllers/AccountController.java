@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @RestController
@@ -30,6 +31,12 @@ public class AccountController {
         AccountResponseDTO accountResponseDTO = modelMapper.map(savedAccount, AccountResponseDTO.class);
         accountResponseDTO.setAccountHolderId(savedAccount.getAccountHolder().getId());
         return new ResponseEntity<>(accountResponseDTO, HttpStatus.CREATED);
+    }
+
+    @PatchMapping("/patch-account/{id}/{balance}")
+    public ResponseEntity<BigDecimal> patchAccount(@PathVariable UUID id, @PathVariable BigDecimal balance) throws Exception {
+        BigDecimal newBalance = accountService.modifyBalance(balance, id);
+        return new ResponseEntity<>(newBalance, HttpStatus.ACCEPTED);
     }
 
 }
