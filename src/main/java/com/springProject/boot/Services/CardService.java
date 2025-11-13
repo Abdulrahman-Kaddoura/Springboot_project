@@ -40,4 +40,9 @@ public class CardService {
         cardRepository.save(card);
         return card;
     }
+
+    public Card findByCvv(String cvv) {
+        Card card = cardRepository.findByCvv(cvv);
+        return card;
+    }
 }
