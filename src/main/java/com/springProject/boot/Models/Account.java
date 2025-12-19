@@ -2,6 +2,7 @@ package com.springProject.boot.Models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Table(name = "account")
 @Getter
 @Setter
+@Audited
 public class Account {
 
     @Id

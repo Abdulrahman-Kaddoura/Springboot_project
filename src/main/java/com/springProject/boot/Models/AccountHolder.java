@@ -3,6 +3,7 @@ package com.springProject.boot.Models;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Table(name = "account_holder")
 @Getter
 @Setter
+@Audited
 public class AccountHolder {
 
     @Column(name = "account_holder_id")

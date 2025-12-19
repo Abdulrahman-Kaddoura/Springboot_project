@@ -2,6 +2,7 @@ package com.springProject.boot.Models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -10,6 +11,7 @@ import java.util.UUID;
 @Table(name = "account_card")
 @Getter
 @Setter
+@Audited
 public class AccountCard {
 
     @Id
