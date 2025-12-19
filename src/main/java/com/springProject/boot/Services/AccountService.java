@@ -4,6 +4,7 @@ import com.springProject.boot.Models.Account;
 import com.springProject.boot.Models.AccountHolder;
 import com.springProject.boot.Repositories.AccountHolderRepository;
 import com.springProject.boot.Repositories.AccountRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
+@Slf4j
 public class AccountService {
     @Autowired
     AccountRepository accountRepository;
@@ -20,12 +22,16 @@ public class AccountService {
     AccountHolderRepository accountHolderRepository;
 
     public Account createAccount(Account account) throws Exception {
+        log.trace("creating account {}", account);
+        log.debug("getting account holder by id {}", account.getAccountHolder().getId());
         Optional<AccountHolder> accountHolder = accountHolderRepository.findById(account.getAccountHolder().getId());
+        log.debug("account holder is retreived of id {}", accountHolder.get().getId());
 
         if (accountHolder.isPresent()) {
             account.setAccountHolder(accountHolder.get());
             return accountRepository.save(account);
         } else {
+            log.error("account holder is not present");
             throw new Exception();
         }
     }
