@@ -2,8 +2,8 @@ package com.springProject.boot.Controllers;
 
 import com.springProject.boot.Models.Card;
 import com.springProject.boot.Services.CardService;
-import com.springProject.boot.dtos.CardResponseDTO;
-import com.springProject.boot.dtos.FindByCvvRequestDTO;
+import com.springProject.boot.dtos.ResponseDTOs.CardResponseDTO;
+import com.springProject.boot.dtos.RequestDTOs.FindByCvvRequestDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

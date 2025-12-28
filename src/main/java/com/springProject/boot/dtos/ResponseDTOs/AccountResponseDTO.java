@@ -1,4 +1,4 @@
-package com.springProject.boot.dtos;
+package com.springProject.boot.dtos.ResponseDTOs;
 
 import lombok.Getter;
 import lombok.Setter;

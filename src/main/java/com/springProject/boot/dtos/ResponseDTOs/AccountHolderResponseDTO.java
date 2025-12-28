@@ -1,15 +1,16 @@
-package com.springProject.boot.dtos;
+package com.springProject.boot.dtos.ResponseDTOs;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import java.time.LocalDate;
 import java.util.UUID;
 
 @Getter
 @Setter
-public class AccountHolderRequestDTO {
+public class AccountHolderResponseDTO {
+    private UUID id;
+
     private String firstName;
 
     private String lastName;

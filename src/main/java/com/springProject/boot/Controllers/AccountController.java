@@ -1,10 +1,9 @@
 package com.springProject.boot.Controllers;
 
 import com.springProject.boot.Models.Account;
-import com.springProject.boot.Models.AccountHolder;
 import com.springProject.boot.Services.AccountService;
-import com.springProject.boot.dtos.AccountRequestDTO;
-import com.springProject.boot.dtos.AccountResponseDTO;
+import com.springProject.boot.dtos.RequestDTOs.AccountRequestDTO;
+import com.springProject.boot.dtos.ResponseDTOs.AccountResponseDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

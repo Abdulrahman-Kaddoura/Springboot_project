@@ -1,4 +1,4 @@
-package com.springProject.boot.dtos;
+package com.springProject.boot.dtos.RequestDTOs;
 
 import com.springProject.boot.Models.AccountHolder;
 import lombok.Getter;
