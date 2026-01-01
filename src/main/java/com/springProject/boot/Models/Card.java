@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "card")
+@Table(name = "card", schema = "cms")
 @Getter
 @Setter
 @Audited

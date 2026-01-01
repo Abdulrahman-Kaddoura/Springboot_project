@@ -15,7 +15,13 @@ public class AccountHolderService {
     AccountHolderRepository accountHolderRepository;
 
     public AccountHolder createAccountHolder(AccountHolder accountHolder) {
-        return accountHolderRepository.save(accountHolder);
+        try {
+            return accountHolderRepository.save(accountHolder);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+
     }
 
     public AccountHolder getById(UUID id) throws Exception {

@@ -59,4 +59,8 @@ public class TransactionService {
         transaction.setCard(card);
         transactionRepository.save(transaction);
     }
+
+    public int findTransactionCountByCard(UUID cardId) {
+        return transactionRepository.findByCardId(cardId).size();
+    }
 }

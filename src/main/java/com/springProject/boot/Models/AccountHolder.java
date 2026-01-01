@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @Entity
-@Table(name = "account_holder")
+@Table(name = "account_holder", schema = "cms")
 @Getter
 @Setter
 @Audited
@@ -29,13 +29,13 @@ public class AccountHolder {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", nullable = false)
     private Integer phoneNumber;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "dob")
+    @Column(name = "dob", nullable = false)
     private LocalDate dob;
 
     @Column(name = "mother_name")
