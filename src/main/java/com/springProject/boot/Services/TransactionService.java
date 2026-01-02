@@ -32,7 +32,7 @@ public class TransactionService {
     @Autowired
     AccountRepository accountRepository;
 
-    public void createTransaction(TransactionRequestDTO transactionRequestDTO) throws Exception {
+    public UUID createTransaction(TransactionRequestDTO transactionRequestDTO) throws Exception {
         Optional<AccountCard> accountCard = accountCardRepository.findById(transactionRequestDTO.getAccountCard());
         Card card = accountCard.get().getCard();
         if (card.getExpiryDate().before(new Date())) {
@@ -58,6 +58,7 @@ public class TransactionService {
         transaction.setId(transactionId);
         transaction.setCard(card);
         transactionRepository.save(transaction);
+        return transactionId;
     }
 
     public int findTransactionCountByCard(UUID cardId) {
