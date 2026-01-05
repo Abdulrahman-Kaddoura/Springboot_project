@@ -1,6 +1,6 @@
 package com.springProject.boot.dtos.RequestDTOs;
 
-import com.springProject.boot.Models.AccountHolder;
+import com.springProject.boot.models.AccountHolder;
 import lombok.Getter;
 import lombok.Setter;
 
