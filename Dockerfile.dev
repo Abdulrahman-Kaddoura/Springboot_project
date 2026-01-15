@@ -1,0 +1,20 @@
+FROM eclipse-temurin:11-jdk
+
+RUN groupadd app && useradd -m -g app app
+
+WORKDIR /app
+
+COPY gradlew .
+COPY gradle gradle
+COPY build.gradle .
+COPY settings.gradle .
+
+COPY src src
+
+RUN chown -R app:app /app
+
+USER app
+
+EXPOSE 9092
+
+ENTRYPOINT ["./gradlew", "bootRun"]

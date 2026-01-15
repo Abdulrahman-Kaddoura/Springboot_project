@@ -1,0 +1,10 @@
+.gradle
+.idea
+logs
+
+build/*
+!build/libs/*.jar
+
+.git
+.gitattributes
+.gitignore
