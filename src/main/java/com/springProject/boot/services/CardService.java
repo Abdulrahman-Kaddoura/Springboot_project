@@ -37,6 +37,7 @@ public class CardService {
         }
         String cardNumber = bin + randomDigits;
         card.setCardNumber(cardNumber);
+        System.out.println("yum SAved card");
         cardRepository.save(card);
         return card;
     }
